@@ -5,6 +5,14 @@ var	gulp = require("gulp"),
 function normalizeStrict(content){
 	return "'use strict';"+content.replace(/\'use strict\';/g,"");
 }
+gulp.task("compile main",function(){
+return gulp.src("dev/js/main.jsx")
+		.pipe(babel({
+			presets:['react']
+		}))
+		.pipe(concat('main.js'))
+		.pipe(gulp.dest('dist/js'));
+});
 gulp.task("compile jsx",function(){
 	return gulp.src("dev/components/**/*.jsx")
 		.pipe(babel({
@@ -22,4 +30,4 @@ gulp.task("copy html",function(){
 	return gulp.src('dev/index.html')
 		.pipe(gulp.dest("dist"));
 });
-gulp.task("default",["compile jsx","copy lib","copy html"]);
+gulp.task("default",["compile main","compile jsx","copy lib","copy html"]);
