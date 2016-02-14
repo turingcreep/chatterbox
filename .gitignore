@@ -1,3 +1,4 @@
 node_modules/
 apache-tomcat-7.0.63/
 deploy.sh
+dist/

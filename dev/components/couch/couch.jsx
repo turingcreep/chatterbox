@@ -7,7 +7,7 @@ var	Couch = React.createClass({
 						<div class="couch-banner-name">{}</div>	
 					</div>
 					<div class="couch-conversation">
-						<div class="speak speak-{}>
+						<div class="speak speak-{}">
 							<i class="person-pic person-pic-{}"></i>
 							<span class="speak-content">{}</span>
 						</div>

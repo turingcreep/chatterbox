@@ -1,3 +1,3 @@
 ReactDOM.render(
-	<App/>,document.getElementBySelector('body')[0]
+	"<App/>",document.getElementsByTagName('body')[0]
 );

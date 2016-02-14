@@ -8,7 +8,7 @@ var Login = React.createClass({
 						<label for="pwd">Password</label>
 						<input type="password" id="pwd"/>
 					</fieldset>
-					<input type="button">Forgot Password</a>
+					<input type="button" value="Forgot Password?"/>
 					<button type="submit" class="pure-button">Sign in</button>
 				</form>
 			</div>
