@@ -1,4 +1,4 @@
-import {ReducerContainer} from '../reducercontainer';
+import {ReducerContainer} from './reducercontainer';
 const reducerContainer = ReducerContainer.getInstance();
 function changePassword(state,action){
 	if(action.type=="change_user.pwd"){

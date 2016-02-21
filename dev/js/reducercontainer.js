@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 const	_ = {},
-	_reducers=[],
-	_rootreducer=null;
+	_reducers=[];
+let	_rootreducer=null;
 export default class ReducerContainer{
 	static getInstance(){
 		return _;	
@@ -11,7 +11,7 @@ export default class ReducerContainer{
 	}
 	getReducer(){
 		if(!_rootreducer){
-			_rootreducer=combineReducers(.._reducers);
+			_rootreducer=combineReducers(..._reducers);
 		}
 		return _rootreducer;
 	}

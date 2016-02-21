@@ -6,11 +6,18 @@ function normalizeStrict(content){
 	return "'use strict';"+content.replace(/\'use strict\';/g,"");
 }
 function manageReducers(content){
-	return "import {ReducerContainer} from '../reducercontainer';\nconst reducerContainer = ReducerContainer.getInstance();\n"+ content + "export default reducerContainer.getReducer();\n";
+	return "import {ReducerContainer} from './reducercontainer';\nconst reducerContainer = ReducerContainer.getInstance();\n"+ content + "export default reducerContainer.getReducer();\n";
 		
 }
 gulp.task("compile:reducers",["manage:reducers"], function(){
-	return gulp.src("dev/js/reducer.js")
+	return gulp.src(["dev/js/reducer.js","dev/js/reducercontainer.js"])
+		.pipe(babel({
+			presets:['es2015']
+		}))
+		.pipe(gulp.dest('dist/js'));
+});
+gulp.task("compile:store",["compile:reducers"], function(){
+	return gulp.src("dev/js/store.js")
 		.pipe(babel({
 			presets:['es2015']
 		}))
