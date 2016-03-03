@@ -10,11 +10,11 @@ export class ReducerContainer{
 		return _;
 	}
 	add(reducer){
-		_reducers.push(reducer);	
+		_reducers[reducer.name]=reducer;	
 	}
 	getReducer(){
 		if(!_rootreducer){
-			_rootreducer=combineReducers(..._reducers);
+			_rootreducer=combineReducers(_reducers);
 		}
 		return _rootreducer;
 	}

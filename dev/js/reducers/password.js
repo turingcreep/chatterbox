@@ -1,4 +1,4 @@
-function changePassword(state,action){
+function changePassword(state={},action){
 	if(action.type=="change_user.pwd"){
 		let	user = state.user,
 			newUser = Object.assign(user,{pwd:action.usr.pwd}),
@@ -6,5 +6,6 @@ function changePassword(state,action){
 		
 		return newState;
 	}
+	return state;
 }
 reducerContainer.add(changePassword);
