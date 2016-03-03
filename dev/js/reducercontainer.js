@@ -1,10 +1,13 @@
 import {combineReducers} from 'redux';
-const	_ = {},
-	_reducers=[];
-let	_rootreducer=null;
-export default class ReducerContainer{
-	static getInstance(){
-		return _;	
+const	_reducers=[];
+let	_ = null,
+	_rootreducer=null;
+export class ReducerContainer{
+	constructor(){
+		if(_==null){
+			_ = this;
+		}
+		return _;
 	}
 	add(reducer){
 		_reducers.push(reducer);	

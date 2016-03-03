@@ -1,4 +1,5 @@
 import {createStore} from 'redux';
-import {Reducer} from './reducer';
+import getReducer from './reducer';
 
-const store = createStore(Reducer);
+var reducer = getReducer();
+const store = createStore(reducer);

@@ -3,7 +3,7 @@ var	App = React.createClass({
 		return {
 			appState:"login",
 			user:{
-				id:"Shanks",
+				id:"Shanks@gmail.com",
 				pwd:"Nes"
 			}
 		}

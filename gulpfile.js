@@ -8,10 +8,10 @@ function normalizeStrict(content){
 	return "'use strict';"+content.replace(/\'use strict\';/g,"");
 }
 function manageReducers(content){
-	return "import {ReducerContainer} from './reducercontainer';\nconst reducerContainer = ReducerContainer.getInstance();\n"+ content + "export default reducerContainer.getReducer();\n";
+	return "import {ReducerContainer} from './reducercontainer';\nlet reducerContainer = new ReducerContainer();\n"+ content + "export default reducerContainer.getReducer;\n";
 		
 }
-gulp.task("flux:dev",["compile store"],function(){
+gulp.task("flux dev",["compile store"],function(){
 		return browserify("dist/js/store.js").bundle()
 			.pipe(source("flux.bundle.js"))
 			.pipe(gulp.dest("dist/js"));
@@ -61,4 +61,4 @@ gulp.task("manage reducers",function(){
 		.pipe(change(manageReducers))	
 		.pipe(gulp.dest("dev/js"));
 });
-gulp.task("default",["compile main","compile jsx","copy lib","copy html"]);
+gulp.task("default",["flux dev","compile main","compile jsx","copy lib","copy html"]);

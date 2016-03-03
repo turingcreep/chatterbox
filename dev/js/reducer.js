@@ -1,5 +1,5 @@
 import {ReducerContainer} from './reducercontainer';
-const reducerContainer = ReducerContainer.getInstance();
+let reducerContainer = new ReducerContainer();
 function changePassword(state,action){
 	if(action.type=="change_user.pwd"){
 		let	user = state.user,
@@ -20,4 +20,4 @@ function changeUsername(state,action){
 	}
 }
 reducerContainer.add(changeUsername);
-export default reducerContainer.getReducer();
+export default reducerContainer.getReducer;
